@@ -3,8 +3,7 @@ package br.com.example.config;
 import java.util.logging.Level;
 
 /**
- * Created by rondymesquita on 27/08/2015
- *
+ * Created by alvaro_silva on 10/05/2016.
  */
 public class Log {
 	

@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
- * Created by rondymesquita on 26/09/15.
+ * Created by alvaro_silva on 10/05/2016.
  */
 public class DuckDuckGoPage extends AbstractPage{
 

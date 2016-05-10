@@ -8,8 +8,7 @@ import io.selendroid.common.device.DeviceTargetPlatform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- * Created by rondymesquita on 05/09/2015
- *
+ * Created by alvaro_silva on 10/05/2016.
  */
 public class MobileCapabilities {
 

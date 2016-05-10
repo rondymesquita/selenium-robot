@@ -1,8 +1,7 @@
 package br.com.example.config;
 
 /**
- * @author alvaro_silva
- * Configuration strings related to framework
+ * Created by alvaro_silva on 10/05/2016.
  */
 public class Config {
 	

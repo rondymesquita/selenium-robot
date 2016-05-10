@@ -11,7 +11,6 @@ import java.lang.reflect.Constructor;
 public class Robot {
 
     private static AbstractDriver abstractDriver;
-    private static AbstractRobot abstractRobot;
     private static final String FIREFOX = "firefox";
     private static final String APPIUM = "appium";
     private static final String SELENDROID = "selendroid";

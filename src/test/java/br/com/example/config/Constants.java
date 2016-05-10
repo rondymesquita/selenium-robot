@@ -1,8 +1,7 @@
 package br.com.example.config;
 
 /**
- * @author alvaro_silva
- * Constants strings used in application by theses tests
+ * Created by alvaro_silva on 10/05/2016.
  */
 public class Constants {
 	

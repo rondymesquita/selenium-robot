@@ -12,10 +12,6 @@ import org.openqa.selenium.WebElement;
 /*
  * Basic functional test with selenium using junit
  *
- * Test name should be
- * 		Test*
- *		*Test
- *		*TestCase
  */
 public class WebTest{
 

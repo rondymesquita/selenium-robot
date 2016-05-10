@@ -22,25 +22,14 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
 
     public AbstractDriverImpl(Class<T> tClass) throws IllegalAccessException, InstantiationException {
         this.tClass = tClass;
-        //driver = (WebDriver) tClass.newInstance();
     }
 
-    /**
-     * @param element
-     * @return A boolean if given element exists on opened page
-     * @throws Exception
-     */
     public boolean exists(By element) throws Exception{
 
         waitUntilVisibilityOfElementLocated(element);
         return driver.findElements(element).size() > 0;
     }
 
-    /**
-     * Wait for given element to exist
-     * @param element
-     * @throws Exception
-     */
     public void waitUntilVisibilityOfElementLocated(By element) throws Exception{
         try{
             WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
@@ -52,13 +41,6 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
         }
     }
 
-
-    /**
-     * Wain until given element have the given text
-     * @param element
-     * @param text
-     * @throws Exception
-     */
     public void waitUntilTextMatches(By element, String text) throws Exception {
         try{
             WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
