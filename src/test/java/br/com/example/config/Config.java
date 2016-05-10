@@ -7,6 +7,6 @@ package br.com.example.config;
 public class Config {
 	
 	//Default timeout to all wait actions
-	public static final long TIMEOUT = 60;
+	public static final long TIMEOUT = 5;
 
 }

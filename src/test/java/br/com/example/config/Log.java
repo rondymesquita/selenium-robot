@@ -6,18 +6,22 @@ import java.util.logging.Level;
  * Created by rondymesquita on 27/08/2015
  *
  */
-public class Logger {
+public class Log {
 	
 	private static java.util.logging.Logger logger = java.util.logging.Logger.getLogger("Logger.class");
 	private static final String PREFIX = "===>";
 	private static final String SUFFIX = "<===";
-	
-	public static void logInfo(String msg){
-		logger.log(Level.INFO, String.format("%s %s %s", PREFIX, msg, SUFFIX));
+
+	public static void info(String msg){
+		logger.log(Level.INFO, log(msg));
 	}
 	
-	public static void logSevere(String msg){
-		logger.log(Level.SEVERE, String.format("%s %s %s", PREFIX, msg, SUFFIX));
+	public static void severe(String msg){
+		logger.log(Level.SEVERE, log(msg));
+	}
+
+	private static String log(String msg){
+		return String.format("%s %s %s", PREFIX, msg, SUFFIX);
 	}
 
 }

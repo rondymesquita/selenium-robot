@@ -4,10 +4,11 @@ import java.io.File;
 
 import br.com.example.config.BaseActions;
 import br.com.example.driver.AbstractDriver;
+import br.com.example.page.components.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends Page{
+public class LoginPage extends AbstractPage{
 	
 	/*
 	 * Set url to you login page
@@ -29,31 +30,39 @@ public class LoginPage extends Page{
 	private static final String VALID_USERNAME = "admin@admin.com";
 	private static final String VALID_PASSWORD = "admin";
 
-//	BaseActions baseActions;
+	private Alert alert = new Alert(driver);
 	
 	public LoginPage(AbstractDriver driver) {
 		super(driver, url);
-//		baseActions = new BaseActions(driver);
 	}
 	
 	public DashboardPage loginWithValidUser() throws Exception {
 		setCredentials(VALID_USERNAME, VALID_PASSWORD);
-
-		DashboardPage dashboardPage = clickLoginButton();
+		clickLoginButton();
+		DashboardPage dashboardPage = new DashboardPage(driver);
 		driver.waitUntilTextMatches(dashboardPage.contentTitleBy, dashboardPage.TITLE);
-//		DashboardPage dashboardPage = clickLoginButton();
-//		baseActions.waitUntilPageOpens(dashboardPage);
+
 		return dashboardPage;
 	}
 	
 	public void loginWithInvalidUser(){
-		setCredentials("invalid@email.com", "");
+		setCredentials("invalid@email.com", "invalidPassword");
 		clickLoginButton();
 	}
 
 	public void loginWith(String username, String password){
 		setCredentials(username, password);
 		clickLoginButton();
+	}
+
+	public boolean isOpened(){
+		return  driver.getCurrentUrl().contains("login") &&
+				driver.findElement(usernameFieldBy).isDisplayed() &&
+				driver.findElement(passwordFieldBy).isDisplayed();
+	}
+
+	public Alert getAlert() {
+		return alert;
 	}
 	
 	private void setUsername(String username){
@@ -69,10 +78,11 @@ public class LoginPage extends Page{
 		setPassword(password);
 	}
 	
-	private DashboardPage clickLoginButton(){
+	private void clickLoginButton(){
 		driver.findElement(loginButton).click();
-		return new DashboardPage(driver);
 	}
+
+
 
 
 }

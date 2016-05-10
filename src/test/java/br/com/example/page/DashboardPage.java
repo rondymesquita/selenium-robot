@@ -9,9 +9,9 @@ import java.io.File;
 /**
  * Created by alvaro_silva on 09/05/2016.
  */
-public class DashboardPage extends Page{
+public class DashboardPage extends AbstractPage{
 
-    public static final String URL = "file://" + new File("./assets/public/dashbord.html").getAbsolutePath();
+    public static final String URL = "file://" + new File("./assets/public/dashboard.html").getAbsolutePath();
 
     public final By logoutButtonBy = By.id("logout_button");
     public final By contentTitleBy = By.id("title");

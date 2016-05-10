@@ -23,17 +23,34 @@ public class LoginTest{
 	
 	@After
 	public void after(){
-
-//		driver.quit();
 		Robot.quit();
 	}
 	
 	@Test
 	public void shouldDoLoginWithValidUser() throws Exception {
 		loginPage.open();
+		Assert.assertTrue(loginPage.isOpened());
 		DashboardPage dashboardPage = loginPage.loginWithValidUser();
 		Assert.assertTrue(dashboardPage.isOpened());
-		Assert.assertTrue(driver.exists(dashboardPage.contentTitleBy));
+		Assert.assertTrue(!loginPage.isOpened());
+	}
+
+	@Test
+	public void shouldDoLogoutWithSuccess() throws Exception {
+		loginPage.open();
+		DashboardPage dashboardPage = loginPage.loginWithValidUser();
+		loginPage = dashboardPage.logout();
+		Assert.assertTrue(loginPage.isOpened());
+		Assert.assertTrue(!dashboardPage.isOpened());
+
+	}
+
+	@Test
+	public void shouldShowAlertWhenSigninWithInvalidUser() throws Exception {
+		loginPage.open();
+		loginPage.loginWithInvalidUser();
+		Assert.assertTrue(loginPage.getAlert().isError());
+		Thread.sleep(2000);
 	}
 	
 	

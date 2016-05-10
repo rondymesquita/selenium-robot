@@ -1,6 +1,6 @@
 package br.com.example.robot;
 
-import br.com.example.config.Logger;
+import br.com.example.config.Log;
 import br.com.example.driver.AbstractDriver;
 
 import java.lang.reflect.Constructor;
@@ -23,7 +23,7 @@ public class Robot {
         //String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
         String driver = FIREFOX;
 
-        Logger.logInfo(String.format("Selected driver: %s", driver));
+        Log.info(String.format("Selected driver: %s", driver));
 
         abstractDriver = getAbstractDriverByGivenName(driver);
 
@@ -35,7 +35,7 @@ public class Robot {
     public static void quit() {
         if (abstractDriver != null) {
             abstractDriver.quit();
-            //Logger.logInfo("Driver stopped");
+            Log.info("Driver stopped");
         }
     }
 

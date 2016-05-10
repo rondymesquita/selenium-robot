@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by rondymesquita on 26/09/15.
  */
-public class DuckDuckGoPage extends Page{
+public class DuckDuckGoPage extends AbstractPage{
 
     private static final String URL = "https://duckduckgo.com";
     public final By searchFieldSelectorBy = By.id("search_form_input_homepage");

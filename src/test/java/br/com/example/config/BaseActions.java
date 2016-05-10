@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.regex.Pattern;
 
-import static br.com.example.config.Logger.*;
-
 /**
  * Created by alvaro_silva on 09/05/2016.
  */
@@ -42,7 +40,7 @@ public class BaseActions {
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         }catch(Exception e){
             String msg = "Could not find "+element;
-            logSevere(msg);
+            Log.severe(msg);
             throw new Exception(msg);
         }
     }
@@ -53,7 +51,7 @@ public class BaseActions {
             wait.until(ExpectedConditions.textMatches(element, Pattern.compile(text)));
         }catch(Exception e){
             String msg = "Could not find "+element;
-            logSevere(msg);
+            Log.severe(msg);
             throw new Exception(msg);
         }
     }

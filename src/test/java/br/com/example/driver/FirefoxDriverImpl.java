@@ -12,9 +12,4 @@ public class FirefoxDriverImpl extends AbstractDriverImpl<FirefoxDriver> impleme
     public FirefoxDriverImpl() throws InstantiationException, IllegalAccessException {
         super(FirefoxDriver.class);
     }
-
-    public boolean exists() {
-        //Logger.logInfo("Called on FirefoxDriverImpl");
-        return true;
-    }
 }

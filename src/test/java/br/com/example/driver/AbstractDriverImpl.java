@@ -1,6 +1,7 @@
 package br.com.example.driver;
 
 import br.com.example.config.Config;
+import br.com.example.config.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,8 +48,8 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
             WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
             wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         }catch(Exception e){
-            String msg = "Could not find "+element;
-//            logSevere(msg);
+            String msg = "Could not find " + element;
+            Log.severe(msg);
             throw new Exception(msg);
         }
     }
@@ -59,7 +60,7 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
             wait.until(ExpectedConditions.textMatches(element, Pattern.compile(text)));
         }catch(Exception e){
             String msg = "Could not find "+element;
-//            logSevere(msg);
+            Log.severe(msg);
             throw new Exception(msg);
         }
     }
