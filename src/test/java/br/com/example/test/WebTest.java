@@ -1,6 +1,6 @@
 package br.com.example.test;
 
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 import br.com.example.page.DuckDuckGoPage;
 import br.com.example.robot.Robot;
 import org.junit.After;
@@ -15,12 +15,12 @@ import org.openqa.selenium.WebElement;
  */
 public class WebTest{
 
-	private AbstractDriver driver;
+	private RobotDriver driver;
 	private DuckDuckGoPage duckDuckGoPage;
 
 	@Before
 	public void before(){
-        driver = Robot.getInstance();
+        driver = Robot.getRobotDriver();
 		duckDuckGoPage = new DuckDuckGoPage(driver);
 	}
 

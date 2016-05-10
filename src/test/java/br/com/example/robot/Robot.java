@@ -1,7 +1,7 @@
 package br.com.example.robot;
 
 import br.com.example.config.Log;
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 
 import java.lang.reflect.Constructor;
 
@@ -10,42 +10,42 @@ import java.lang.reflect.Constructor;
  */
 public class Robot {
 
-    private static AbstractDriver abstractDriver;
+    private static RobotDriver robotDriver;
     private static final String FIREFOX = "firefox";
     private static final String APPIUM = "appium";
     private static final String SELENDROID = "selendroid";
 
     private Robot() {}
 
-    public static AbstractDriver getInstance() {
+    public static RobotDriver getRobotDriver() {
 
-        //String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
-        String driver = SELENDROID;
+        String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
+        //String driver = SELENDROID;
 
         Log.info(String.format("Selected driver: %s", driver));
 
-        abstractDriver = getAbstractDriverByGivenName(driver);
+        robotDriver = getAbstractDriverByGivenName(driver);
 
-        return abstractDriver;
+        return robotDriver;
     }
 
     public static void quit() {
-        if (abstractDriver != null) {
-            abstractDriver.quit();
+        if (robotDriver != null) {
+            robotDriver.quit();
             Log.info("Driver stopped");
         }
     }
 
-    private static AbstractDriver getAbstractDriverByGivenName(String driverName) {
+    private static RobotDriver getAbstractDriverByGivenName(String driverName) {
         Class cl;
         try {
             cl = Class.forName(String.format("br.com.example.driver.%sDriverImpl", capitalize(driverName)));
             Constructor con = cl.getConstructor(null);
-            abstractDriver = (AbstractDriver) con.newInstance();
+            robotDriver = (RobotDriver) con.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return abstractDriver;
+        return robotDriver;
     }
 
     private static String capitalize(final String text) {

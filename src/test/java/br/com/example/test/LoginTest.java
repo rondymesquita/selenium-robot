@@ -1,7 +1,6 @@
 package br.com.example.test;
 
-import br.com.example.driver.AbstractDriver;
-import br.com.example.driver.FirefoxDriverImpl;
+import br.com.example.driver.RobotDriver;
 import br.com.example.page.DashboardPage;
 import br.com.example.page.LoginPage;
 import br.com.example.robot.Robot;
@@ -12,12 +11,12 @@ import org.junit.Test;
 
 public class LoginTest{
 
-	private AbstractDriver driver;
+	private RobotDriver driver;
 	private LoginPage loginPage;
 	
 	@Before
 	public void before() throws IllegalAccessException, InstantiationException {
-		driver = Robot.getInstance();
+		driver = Robot.getRobotDriver();
 		loginPage = new LoginPage(driver);
 	}
 	
@@ -42,7 +41,6 @@ public class LoginTest{
 		loginPage = dashboardPage.logout();
 		Assert.assertTrue(loginPage.isOpened());
 		Assert.assertTrue(!dashboardPage.isOpened());
-
 	}
 
 	@Test

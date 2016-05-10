@@ -1,6 +1,6 @@
 package br.com.example.page;
 
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 import br.com.example.page.components.Alert;
 import org.openqa.selenium.By;
 
@@ -33,7 +33,7 @@ public class LoginPage extends AbstractPage{
 	 */
 	private Alert alert = new Alert(driver);
 	
-	public LoginPage(AbstractDriver driver) {
+	public LoginPage(RobotDriver driver) {
 		super(driver, url);
 	}
 	

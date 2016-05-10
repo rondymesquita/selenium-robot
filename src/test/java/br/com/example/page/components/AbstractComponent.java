@@ -1,15 +1,15 @@
 package br.com.example.page.components;
 
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 
 /**
  * Created by alvaro_silva on 10/05/2016.
  */
 public abstract class AbstractComponent {
 
-    protected AbstractDriver driver;
+    protected RobotDriver driver;
 
-    public AbstractComponent(AbstractDriver driver) {
+    public AbstractComponent(RobotDriver driver) {
         this.driver = driver;
     }
 }

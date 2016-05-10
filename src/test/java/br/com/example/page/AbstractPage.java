@@ -1,17 +1,17 @@
 package br.com.example.page;
 
 import br.com.example.config.Log;
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 
 /**
  * Created by rondymesquita on 26/09/15.
  */
 abstract class AbstractPage {
 
-    protected AbstractDriver driver;
+    protected RobotDriver driver;
     public static String url;
 
-    AbstractPage(AbstractDriver driver, String url){
+    AbstractPage(RobotDriver driver, String url){
         this.driver = driver;
         this.url = url;
     }

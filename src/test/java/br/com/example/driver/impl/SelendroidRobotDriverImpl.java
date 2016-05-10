@@ -1,22 +1,21 @@
-package br.com.example.driver;
+package br.com.example.driver.impl;
 
+import br.com.example.driver.SelendroidRobotDriver;
 import br.com.example.mobile.MobileCapabilities;
 import io.selendroid.client.SelendroidDriver;
 import io.selendroid.standalone.SelendroidConfiguration;
 import io.selendroid.standalone.SelendroidLauncher;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
  * Created by alvaro_silva on 10/05/2016.
  */
-public class SelendroidDriverImpl  extends AbstractDriverImpl<SelendroidDriver> implements AbstractSelendroidDriver{
+public class SelendroidRobotDriverImpl extends RobotDriverImpl<SelendroidDriver> implements SelendroidRobotDriver {
 
     private SelendroidLauncher selendroidServer = null;
 
-    public SelendroidDriverImpl() throws Exception {
+    public SelendroidRobotDriverImpl() throws Exception {
         super(SelendroidDriver.class);
 
         SelendroidConfiguration config = new SelendroidConfiguration();

@@ -2,7 +2,7 @@ package br.com.example.page;
 
 //import br.com.example.config.Logger;
 import br.com.example.config.Log;
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -15,7 +15,7 @@ public class DuckDuckGoPage extends AbstractPage{
     public final By searchFieldSelectorBy = By.id("search_form_input_homepage");
     public final By searchButtonSelectorBy = By.id("search_button_homepage");
 
-    public DuckDuckGoPage(AbstractDriver driver) {
+    public DuckDuckGoPage(RobotDriver driver) {
         super(driver, URL);
     }
 

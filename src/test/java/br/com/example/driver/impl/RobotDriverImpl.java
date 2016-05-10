@@ -1,7 +1,8 @@
-package br.com.example.driver;
+package br.com.example.driver.impl;
 
 import br.com.example.config.Config;
 import br.com.example.config.Log;
+import br.com.example.driver.RobotDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,12 +16,12 @@ import java.util.regex.Pattern;
 /**
  * Created by alvaro_silva on 10/05/2016.
  */
-public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
+public abstract class RobotDriverImpl<T> implements RobotDriver<T> {
 
     protected final Class<T> tClass;
     protected WebDriver driver;
 
-    public AbstractDriverImpl(Class<T> tClass) throws IllegalAccessException, InstantiationException {
+    public RobotDriverImpl(Class<T> tClass) throws IllegalAccessException, InstantiationException {
         this.tClass = tClass;
     }
 

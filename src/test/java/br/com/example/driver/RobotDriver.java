@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by alvaro_silva on 10/05/2016.
  */
-public interface AbstractDriver <T> extends WebDriver{
+public interface RobotDriver<T> extends WebDriver{
     /**
      *
      * @return Selenium Webdriver instance without custom methods

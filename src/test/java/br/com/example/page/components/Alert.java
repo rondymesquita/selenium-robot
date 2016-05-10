@@ -1,8 +1,6 @@
 package br.com.example.page.components;
 
-import br.com.example.config.Log;
-import br.com.example.driver.AbstractDriver;
-import org.junit.Assert;
+import br.com.example.driver.RobotDriver;
 import org.openqa.selenium.By;
 
 /**
@@ -14,7 +12,7 @@ public class Alert extends AbstractComponent{
     private final By alertDangerBy = By.cssSelector(".alert.alert-danger");
     private final By alertProgressBy = By.cssSelector(".alert.alert-progress");
 
-    public Alert(AbstractDriver driver) {
+    public Alert(RobotDriver driver) {
         super(driver);
     }
 

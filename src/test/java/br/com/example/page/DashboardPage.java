@@ -1,8 +1,7 @@
 package br.com.example.page;
 
-import br.com.example.driver.AbstractDriver;
+import br.com.example.driver.RobotDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 
@@ -19,7 +18,7 @@ public class DashboardPage extends AbstractPage{
     public final String TITLE = "Dashboard";
 
 
-    public DashboardPage(AbstractDriver driver) {
+    public DashboardPage(RobotDriver driver) {
         super(driver, URL);
     }
 
