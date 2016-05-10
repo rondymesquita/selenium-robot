@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <link href="bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div container row nowrap>
+    <div id="dashboard" >
+        <h2 id="title">Dashboard</h2>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">Overview</a>
+            <a href="#" class="list-group-item">Files</a>
+            <a href="#" class="list-group-item">History</a>
+            <a href="#" class="list-group-item">Configuration</a>
+            <a id="logout_button" href="#" class="list-group-item">Logout</a>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+<script src="jquery-1.12.3.js"></script>
+<script>
+	window.onload = function() {
+
+		$('#logout_button').on('click', logout);
+
+		function logout(){
+			window.location = './login.html';
+		}
+
+
+	}
+</script>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link href="style.css" rel="stylesheet" />
+	<link href="bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div container row nowrap>
+		<div id="login" class="">
+			<h1 class="center">Login</h1>
+			<div id="login_alert" class="alert alert-danger" role="alert" style="display:none;">Invalid credentials</div>
+			<div id="login_progress" class="alert alert-info" role="alert" style="display:none;">Signing...</div>
+			<form id="login_form">
+				<div class="form-group">
+					<label for="field_username">Email address</label>
+					<input type="email" class="form-control" id="username_field" placeholder="Email">
+				</div>
+				<div class="form-group">
+					<label for="field_password">Password</label>
+					<input type="password" class="form-control" id="password_field" placeholder="Password">
+				</div>
+				<button id="login_button" class="btn btn-primary btn-block" type="submit">Ok</button>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+
+<script src="jquery-1.12.3.js"></script>
+<script>
+	window.onload = function() {
+
+		$("#login_form").on('submit',function(){
+			var username = $('#username_field').val();
+			var password = $('#password_field').val();
+
+			$('#login_progress').show()
+			$('#login_alert').hide();
+
+			$('#username_field').attr('disabled','disabled');
+			$('#password_field').attr('disabled','disabled');
+			$('#login_button').attr('disabled','disabled');
+
+			login(username, password).done(function(){
+				window.location = './dashboard.html';
+			}).fail(function(){
+				$('#login_alert').show();
+			}).always(function(){
+				$('#login_progress').hide();
+				$('#username_field').removeAttr('disabled');
+				$('#password_field').removeAttr('disabled');
+				$('#login_button').removeAttr('disabled');
+			});
+			return false;
+		});
+
+
+		function login(username, password){
+			var defer = $.Deferred();
+			setTimeout(function(){
+				if(username == "admin@admin.com" && password == "admin"){
+					defer.resolve();
+				}else{
+					defer.reject();
+				}
+
+			}, 3 * 1000);
+			return defer.promise();
+		}
+
+
+	}
+</script>
+
+</html>
