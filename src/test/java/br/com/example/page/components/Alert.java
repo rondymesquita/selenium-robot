@@ -1,5 +1,6 @@
 package br.com.example.page.components;
 
+import br.com.example.config.Log;
 import br.com.example.driver.AbstractDriver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -21,4 +22,5 @@ public class Alert extends AbstractComponent{
         driver.waitUntilVisibilityOfElementLocated(alertDangerBy);
         return driver.findElement(alertDangerBy).isDisplayed();
     }
+
 }

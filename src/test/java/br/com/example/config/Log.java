@@ -21,7 +21,7 @@ public class Log {
 	}
 
 	private static String log(String msg){
-		return String.format("%s %s %s", PREFIX, msg, SUFFIX);
+		return String.format("%s%s%s", PREFIX, msg, SUFFIX);
 	}
 
 }
