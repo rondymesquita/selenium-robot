@@ -5,7 +5,7 @@ import br.com.example.driver.AbstractDriver;
 /**
  * Created by alvaro_silva on 10/05/2016.
  */
-public class AbstractComponent {
+public abstract class AbstractComponent {
 
     protected AbstractDriver driver;
 

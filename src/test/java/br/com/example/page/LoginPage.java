@@ -30,6 +30,9 @@ public class LoginPage extends AbstractPage{
 	private static final String VALID_USERNAME = "admin@admin.com";
 	private static final String VALID_PASSWORD = "admin";
 
+	/*
+	Components
+	 */
 	private Alert alert = new Alert(driver);
 	
 	public LoginPage(AbstractDriver driver) {
