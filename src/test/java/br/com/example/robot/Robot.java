@@ -2,7 +2,6 @@ package br.com.example.robot;
 
 import br.com.example.config.Logger;
 import br.com.example.driver.AbstractDriver;
-import org.openqa.selenium.WebDriver;
 
 import java.lang.reflect.Constructor;
 
@@ -26,9 +25,9 @@ public class Robot {
 
         Logger.logInfo(String.format("Selected driver: %s", driver));
 
-        abstractDriver = getWebDriverByDriverName(driver);
+        abstractDriver = getAbstractDriverByGivenName(driver);
 
-        Logger.logInfo(String.format("Running with %s driver", driver));
+        //Logger.logInfo(String.format("Running with %s driver", driver));
 
         return abstractDriver;
     }
@@ -36,11 +35,11 @@ public class Robot {
     public static void quit() {
         if (abstractDriver != null) {
             abstractDriver.quit();
-            Logger.logInfo("Driver stopped");
+            //Logger.logInfo("Driver stopped");
         }
     }
 
-    private static AbstractDriver getWebDriverByDriverName(String driverName) {
+    private static AbstractDriver getAbstractDriverByGivenName(String driverName) {
         Class cl;
         try {
             cl = Class.forName(String.format("br.com.example.driver.%sDriverImpl", capitalize(driverName)));
@@ -52,7 +51,7 @@ public class Robot {
         return abstractDriver;
     }
 
-    private static String capitalize(final String line) {
-        return Character.toUpperCase(line.charAt(0)) + line.substring(1);
+    private static String capitalize(final String text) {
+        return Character.toUpperCase(text.charAt(0)) + text.substring(1);
     }
 }

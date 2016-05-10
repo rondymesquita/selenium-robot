@@ -1,12 +1,17 @@
 package br.com.example.driver;
 
-import br.com.example.config.Logger;
+import br.com.example.config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
+
+//import static br.com.example.config.Logger.logSevere;
 
 /**
  * Created by alvaro_silva on 10/05/2016.
@@ -21,10 +26,50 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
         driver = (WebDriver) tClass.newInstance();
     }
 
-    public boolean exists() {
-        Logger.logInfo("Called on AbstractDriverImpl");
-        return false;
+    /**
+     * @param element
+     * @return A boolean if given element exists on opened page
+     * @throws Exception
+     */
+    public boolean exists(By element) throws Exception{
+
+        waitUntilVisibilityOfElementLocated(element);
+        return driver.findElements(element).size() > 0;
     }
+
+    /**
+     * Wait for given element to exist
+     * @param element
+     * @throws Exception
+     */
+    public void waitUntilVisibilityOfElementLocated(By element) throws Exception{
+        try{
+            WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        }catch(Exception e){
+            String msg = "Could not find "+element;
+//            logSevere(msg);
+            throw new Exception(msg);
+        }
+    }
+
+    public void waitUntilTextMatches(By element, String text) throws Exception {
+        try{
+            WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
+            wait.until(ExpectedConditions.textMatches(element, Pattern.compile(text)));
+        }catch(Exception e){
+            String msg = "Could not find "+element;
+//            logSevere(msg);
+            throw new Exception(msg);
+        }
+    }
+//    public void waitUntilPageOpens(Page page) {
+//        WebDriverWait wait = new WebDriverWait(driver, Config.TIMEOUT);
+//        wait.until(
+//                ExpectedConditions.urlMatches(page.URL)
+//        );
+//    }
+
     public WebDriver getRawDriver(){
         return driver;
     }

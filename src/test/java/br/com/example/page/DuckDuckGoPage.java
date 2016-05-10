@@ -1,8 +1,8 @@
 package br.com.example.page;
 
-import br.com.example.config.Logger;
+//import br.com.example.config.Logger;
+import br.com.example.driver.AbstractDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -14,12 +14,12 @@ public class DuckDuckGoPage extends Page{
     public final By searchFieldSelectorBy = By.id("search_form_input_homepage");
     public final By searchButtonSelectorBy = By.id("search_button_homepage");
 
-    public DuckDuckGoPage(WebDriver driver) {
+    public DuckDuckGoPage(AbstractDriver driver) {
         super(driver, URL);
     }
 
     public void setSearchField(String search){
-        Logger.logInfo(searchFieldSelectorBy.toString());
+//        Logger.logInfo(searchFieldSelectorBy.toString());
         WebElement searchField = driver.findElement(searchFieldSelectorBy);
         searchField.sendKeys(search);
     }

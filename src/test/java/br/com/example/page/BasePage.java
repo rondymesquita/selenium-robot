@@ -1,5 +1,6 @@
 package br.com.example.page;
 
+import br.com.example.driver.AbstractDriver;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -7,10 +8,10 @@ import org.openqa.selenium.WebDriver;
  */
 abstract class Page {
 
-    protected WebDriver driver;
+    protected AbstractDriver driver;
     public static String url;
 
-    Page(WebDriver driver, String url){
+    Page(AbstractDriver driver, String url){
         this.driver = driver;
         this.url = url;
     }

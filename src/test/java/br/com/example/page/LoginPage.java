@@ -3,6 +3,7 @@ package br.com.example.page;
 import java.io.File;
 
 import br.com.example.config.BaseActions;
+import br.com.example.driver.AbstractDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,18 +29,18 @@ public class LoginPage extends Page{
 	private static final String VALID_USERNAME = "admin@admin.com";
 	private static final String VALID_PASSWORD = "admin";
 
-	BaseActions baseActions;
+//	BaseActions baseActions;
 	
-	public LoginPage(WebDriver driver) {
+	public LoginPage(AbstractDriver driver) {
 		super(driver, url);
-		baseActions = new BaseActions(driver);
+//		baseActions = new BaseActions(driver);
 	}
 	
 	public DashboardPage loginWithValidUser() throws Exception {
 		setCredentials(VALID_USERNAME, VALID_PASSWORD);
 
 		DashboardPage dashboardPage = clickLoginButton();
-		baseActions.waitUntilTextMatches(dashboardPage.contentTitleBy, dashboardPage.TITLE);
+		driver.waitUntilTextMatches(dashboardPage.contentTitleBy, dashboardPage.TITLE);
 //		DashboardPage dashboardPage = clickLoginButton();
 //		baseActions.waitUntilPageOpens(dashboardPage);
 		return dashboardPage;

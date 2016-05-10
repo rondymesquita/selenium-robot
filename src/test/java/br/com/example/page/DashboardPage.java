@@ -1,5 +1,6 @@
 package br.com.example.page;
 
+import br.com.example.driver.AbstractDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,7 +19,7 @@ public class DashboardPage extends Page{
     public final String TITLE = "Dashboard";
 
 
-    public DashboardPage(WebDriver driver) {
+    public DashboardPage(AbstractDriver driver) {
         super(driver, URL);
     }
 
