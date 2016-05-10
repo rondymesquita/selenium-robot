@@ -50,7 +50,6 @@ public class LoginTest{
 		loginPage.open();
 		loginPage.loginWithInvalidUser();
 		Assert.assertTrue(loginPage.getAlert().isError());
-		Thread.sleep(2000);
 	}
 	
 	

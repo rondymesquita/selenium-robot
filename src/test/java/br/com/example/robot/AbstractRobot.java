@@ -8,6 +8,6 @@ import org.openqa.selenium.WebDriver;
  */
 public interface AbstractRobot {
 
-    public AbstractDriver getDriver();
+    public AbstractDriver getDriver() throws IllegalAccessException, InstantiationException;
     public void quitDriver();
 }

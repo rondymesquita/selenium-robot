@@ -22,7 +22,7 @@ public abstract class AbstractDriverImpl<T> implements AbstractDriver<T>{
 
     public AbstractDriverImpl(Class<T> tClass) throws IllegalAccessException, InstantiationException {
         this.tClass = tClass;
-        driver = (WebDriver) tClass.newInstance();
+        //driver = (WebDriver) tClass.newInstance();
     }
 
     /**

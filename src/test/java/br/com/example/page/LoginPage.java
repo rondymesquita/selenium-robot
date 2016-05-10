@@ -1,12 +1,10 @@
 package br.com.example.page;
 
-import java.io.File;
-
-import br.com.example.config.BaseActions;
 import br.com.example.driver.AbstractDriver;
 import br.com.example.page.components.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import java.io.File;
 
 public class LoginPage extends AbstractPage{
 	

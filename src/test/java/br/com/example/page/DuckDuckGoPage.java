@@ -1,6 +1,7 @@
 package br.com.example.page;
 
 //import br.com.example.config.Logger;
+import br.com.example.config.Log;
 import br.com.example.driver.AbstractDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,7 +20,7 @@ public class DuckDuckGoPage extends AbstractPage{
     }
 
     public void setSearchField(String search){
-//        Logger.logInfo(searchFieldSelectorBy.toString());
+        Log.info(searchFieldSelectorBy.toString());
         WebElement searchField = driver.findElement(searchFieldSelectorBy);
         searchField.sendKeys(search);
     }

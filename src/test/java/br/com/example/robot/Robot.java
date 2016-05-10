@@ -20,7 +20,8 @@ public class Robot {
 
     public static AbstractDriver getInstance() {
 
-        String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
+        //String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
+        String driver = SELENDROID;
 
         Log.info(String.format("Selected driver: %s", driver));
 
