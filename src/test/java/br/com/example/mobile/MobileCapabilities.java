@@ -13,17 +13,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class MobileCapabilities {
 
 	private static DesiredCapabilities desiredCapabilities;
-	
-	public static DesiredCapabilities build(){
-		desiredCapabilities = SelendroidCapabilities.android();
-		desiredCapabilities.setCapability("platformName", "Android");
-		desiredCapabilities.setCapability("deviceName", "MotoX");
-		desiredCapabilities.setCapability("version", "19.0.0");
-		desiredCapabilities.setCapability("browser", "chrome"); 
-		desiredCapabilities.setCapability("browserName", "chrome"); 
-//		desiredCapabilities.setCapability("app", appFile.getAbsolutePath());
-		return desiredCapabilities;
-	}
 
 	public static DesiredCapabilities buildToSelendroid(){
 		desiredCapabilities = SelendroidCapabilities.android();
@@ -40,6 +29,7 @@ public class MobileCapabilities {
 		desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MotoX");
 		desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "4.4");
 //		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.BROWSER);
+		//		desiredCapabilities.setCapability("app", appFile.getAbsolutePath());
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
 		return desiredCapabilities;
 	}

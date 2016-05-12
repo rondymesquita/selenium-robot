@@ -28,7 +28,7 @@ public interface RobotDriver<T> extends WebDriver{
     void waitUntilVisibilityOfElementLocated(By element) throws Exception;
 
     /**
-     * Wain until given element have the given text
+     * Wait until given element have the given text
      * @param element
      * @param text
      * @throws Exception

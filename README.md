@@ -1,13 +1,9 @@
-# Selenium Example
-Selenium Example with multiples drives running in same interface.
+# ROBOT
+Layer over selenium with multiples drives running in same interface.
 
 ##Requirements
 - Maven3+
-- Appium
-- Selendroid
-- Android SDK: **ANDROID_HOME** on path
 - **JAVA_HOME** on path (tested with java8)
-- Firefox latest version installed
 
 ## Configuring
 ### Dependencies
@@ -21,7 +17,9 @@ mvn eclipse:eclipse
 mvn test -Pfirefox
 ```
 
-####Another Envs
+If no profile is informed, firefox is defined by default.
+
+####Another Maven Profiles
 ```bash
 -Pappium
 -Pselendroid

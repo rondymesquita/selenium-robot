@@ -15,6 +15,9 @@ public class SelendroidRobotDriverImpl extends RobotDriverImpl<SelendroidDriver>
 
     private SelendroidLauncher selendroidServer = null;
 
+    /*
+        All initialization of this class should be here
+     */
     public SelendroidRobotDriverImpl() throws Exception {
         super(SelendroidDriver.class);
 
@@ -28,6 +31,9 @@ public class SelendroidRobotDriverImpl extends RobotDriverImpl<SelendroidDriver>
     @Override
     public void quit() {
 
+        /*
+            This is required in order to call quit from selenium framework.
+         */
         super.quit();
 
         if (selendroidServer != null) {

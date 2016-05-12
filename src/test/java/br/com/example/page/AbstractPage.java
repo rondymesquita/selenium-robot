@@ -9,7 +9,7 @@ import br.com.example.driver.RobotDriver;
 abstract class AbstractPage {
 
     protected RobotDriver driver;
-    public static String url;
+    protected String url;
 
     AbstractPage(RobotDriver driver, String url){
         this.driver = driver;

@@ -11,22 +11,29 @@ import java.lang.reflect.Constructor;
 public class Robot {
 
     private static RobotDriver robotDriver;
-    private static final String FIREFOX = "firefox";
-    private static final String APPIUM = "appium";
-    private static final String SELENDROID = "selendroid";
+    public static final String FIREFOX = "firefox";
+    public static final String APPIUM = "appium";
+    public static final String SELENDROID = "selendroid";
+    private static String defaultDriver = FIREFOX;
 
     private Robot() {}
 
     public static RobotDriver getRobotDriver() {
 
-        String driver = System.getProperty("driver") != null ? System.getProperty("driver") : FIREFOX;
-        //String driver = SELENDROID;
+        String driver = System.getProperty("driver") != null ? System.getProperty("driver") : defaultDriver;
 
         Log.info(String.format("Selected driver: %s", driver));
 
         robotDriver = getAbstractDriverByGivenName(driver);
 
         return robotDriver;
+    }
+
+    public static RobotDriver getRobotDriver(String driver) {
+
+        System.setProperty("driver", driver);
+
+        return getRobotDriver();
     }
 
     public static void quit() {
@@ -38,11 +45,13 @@ public class Robot {
 
     private static RobotDriver getAbstractDriverByGivenName(String driverName) {
         Class cl;
+        String className = String.format("br.com.example.driver.impl.%sRobotDriverImpl", capitalize(driverName));
         try {
-            cl = Class.forName(String.format("br.com.example.driver.%sDriverImpl", capitalize(driverName)));
+            cl = Class.forName(className);
             Constructor con = cl.getConstructor(null);
             robotDriver = (RobotDriver) con.newInstance();
         } catch (Exception e) {
+            Log.severe(String.format("There is not any driver to instantiate with name: %s", className));
             e.printStackTrace();
         }
         return robotDriver;
