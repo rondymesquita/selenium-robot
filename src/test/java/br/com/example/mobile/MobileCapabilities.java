@@ -19,8 +19,7 @@ public class MobileCapabilities {
 		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MotoX");
 		desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "4.4");
-		//desiredCapabilities.setCapability("browser", "chrome");
-		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,  MobileBrowserType.CHROME);
+		desiredCapabilities.setCapability("browser", "chrome");
 		return desiredCapabilities;
 	}
 
