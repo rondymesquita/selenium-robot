@@ -12,8 +12,8 @@ import org.openqa.selenium.WebElement;
 public class DuckDuckGoPage extends AbstractPage{
 
     private static final String URL = "https://duckduckgo.com";
-    public final By searchFieldSelectorBy = By.id("search_form_input_homepage");
-    public final By searchButtonSelectorBy = By.id("search_button_homepage");
+    public By searchFieldSelectorBy = By.id("search_form_input_homepage");
+    public By searchButtonSelectorBy = By.id("search_button_homepage");
 
     public DuckDuckGoPage(RobotDriver driver) {
         super(driver, URL);

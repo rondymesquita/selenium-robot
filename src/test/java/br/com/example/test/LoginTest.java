@@ -16,7 +16,7 @@ public class LoginTest{
 	
 	@Before
 	public void before() throws IllegalAccessException, InstantiationException {
-		driver = Robot.getRobotDriver();
+		driver = Robot.getRobotDriver(); //See Robot to get more informations
 		loginPage = new LoginPage(driver);
 	}
 	

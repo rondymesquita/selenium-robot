@@ -15,11 +15,12 @@ public class MobileCapabilities {
 	private static DesiredCapabilities desiredCapabilities;
 
 	public static DesiredCapabilities buildToSelendroid(){
-		desiredCapabilities = SelendroidCapabilities.android();
-		desiredCapabilities.setCapability("platformName", "Android");
-		desiredCapabilities.setCapability("deviceName", "MotoX");
-		desiredCapabilities.setCapability("version", "4.4");
-		desiredCapabilities.setCapability("browser", "chrome");
+		desiredCapabilities = DesiredCapabilities.android();
+		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MotoX");
+		desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "4.4");
+		//desiredCapabilities.setCapability("browser", "chrome");
+		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,  MobileBrowserType.CHROME);
 		return desiredCapabilities;
 	}
 
@@ -28,7 +29,6 @@ public class MobileCapabilities {
 		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "MotoX");
 		desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "4.4");
-//		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.BROWSER);
 		//		desiredCapabilities.setCapability("app", appFile.getAbsolutePath());
 		desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.CHROME);
 		return desiredCapabilities;

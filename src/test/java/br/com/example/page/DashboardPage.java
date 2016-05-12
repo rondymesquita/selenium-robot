@@ -12,8 +12,8 @@ public class DashboardPage extends AbstractPage{
 
     public static final String URL = "file://" + new File("./assets/public/dashboard.html").getAbsolutePath();
 
-    public final By logoutButtonBy = By.id("logout_button");
-    public final By contentTitleBy = By.id("title");
+    public By logoutButtonBy = By.id("logout_button");
+    public By contentTitleBy = By.id("title");
 
     public final String TITLE = "Dashboard";
 
