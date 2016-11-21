@@ -1,5 +1,5 @@
 In this package you must declare your drivers.
-This code is a layer over selenium extending its features. Thing you need to do to create a new driver:
+This code is a layer over selenium extending its features. Things you need to do to create a new driver:
 
 1. Create an interface with [DRIVER_NAME]RobotDriver extending RobotDriver and informing driver you want to extend. E.g.
 ```java
@@ -18,6 +18,9 @@ public class FirefoxRobotDriverImpl extends RobotDriverImpl<FirefoxDriver> imple
     }
 }
 ```
+### IMPORTANT
+**After creating your driver, do not forget to create a new maven profile in pom.xml and put its *driver systemPropertyVariable* with your driver name in lowercase.
+
 
 You can notice that:
 - All drives share the same interface. So RobotDriver is a selenium driver with some custom method that you can add in the future.
